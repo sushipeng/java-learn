@@ -1,0 +1,9 @@
+
+cd /usr/local/nginx/sbin
+./nginx  启动
+./nginx -s stop 关闭
+./nginx -s reload 重新加载
+
+
+nginx 配置文件位置 默认端口80
+cd /usr/local/nginx/conf

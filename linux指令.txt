@@ -1,0 +1,63 @@
+systemctl status firewalld.service  查看防火墙状态
+active (running) 说明防火墙是开启状态
+
+systemctl stop firewalld.service 关闭运行的防火墙
+disavtive（dead）的字样，说明防火墙已经关闭 
+
+systemctl disable firewalld.service 禁止防火墙服务器
+
+ps -ef | grep nginx 查看进程
+grep nginx 查看进程
+
+ps -ef | grep tomcat 查看
+root      23997      1  0 18:08 pts/1    00:00:08 /usr/bin/java 
+kill -9 23997 关闭进程
+
+
+
+firewall-cmd --list-all 查看开放的端口号
+
+设置开放的端口号
+firewall-cmd --add-service=http –permanent
+firewall-cmd --add-port=80/tcp --permanent
+
+firewall-cmd –reload 重启防火墙
+
+-----------------------------------------------
+安装apache-tomcat-7.0.70.tar.gz
+tar -vxf apache-tomcat-7.0.70.tar.gz
+
+进入bin目录
+cd apache-tomcat-7.0.70/bin
+./startup.sh 启动tomcat， 默认端口8080
+
+进入logs目录
+cd apache-tomcat-7.0.70/logs
+tail -f catalina.out 查看日志
+
+tomcat配置文件
+cd apache-tomcat-7.0.70/conf
+vim server.xml
+<Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443" />
+
+修改为8080
+<Connector port="8081" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+/usr/local/tomcat/bin/shutdown.sh     (关闭tomcat)
+./shutdown.sh   
+/usr/local/tomcat/bin/startup.sh      (启动tomcat)
+./startup.sh
+=============================
+cp命令
+命令：cp dir1/a.doc dir2 表示将dir1下的a.doc文件复制到dir2目录下
+
+cp -r dir1 dir2 表示将dir1及其dir1下所包含的文件复制到dir2下
+
+cp -r dir1/. dir2 表示将dir1下的文件复制到dir2,不包括dir1目录
+
+说明：cp参数 -i：询问，如果目标文件已经存在，则会询问是否覆盖；
+
